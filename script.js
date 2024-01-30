@@ -4,9 +4,12 @@ function getTime(){
     let minutes = now.getMinutes().toString().padStart(2,0);
     let seconds = now.getSeconds().toString().padStart(2,0);
     let meridiem = "AM";
-    if(hours>12){
+    if(hours>=12){
         hours = hours%12;
         meridiem = "PM";
+    }
+    else if(hours === 0){
+            hours = 12;
     }
     hours = hours.toString().padStart(2,0);
     let timeString = `${hours}:${minutes}:${seconds} ${meridiem}`;
